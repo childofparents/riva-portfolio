@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internships — Riva Lan</title>
+  <meta name="description" content="Case studies in data science and backend engineering internships, transitioning objectives into production-grade pipelines.">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="wordmark">Riva Lan<span class="dot"></span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academic-research.html">Academic Research</a></li>
+        <li><a href="internships.html" aria-current="page">Internships</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Internships</span>
+      <h1>Transitioning abstract data science and backend engineering objectives into checkable, production-grade pipelines while documenting all operational trade-offs.</h1>
+    </div>
+  </header>
+
+  <section class="section case-block" id="idx-exchange" aria-labelledby="idx-heading">
+    <div class="container">
+      <span class="eyebrow case-meta">Data Science Internship · IDX Exchange</span>
+      <h2 id="idx-heading">Building and validating machine learning models for residential property valuation.</h2>
+
+      <div class="proof-item">
+        <div class="proof-row">
+          <span class="label">The Problem</span>
+          <p>Real estate evaluation processes often struggle to scale effectively when transitioning from raw MLS data feeds to accurate close price predictions. For internal teams and clients at IDX Exchange, the objective was to create a data pipeline that accurately extracts key variables—such as total living area and lot size—and leverages them to project property values across the California market. The target was to ensure end-to-end auditability from initial data ingestion down to final performance metrics.</p>
+        </div>
+        <div class="proof-row">
+          <span class="label">What I Did</span>
+          <p>Working within a structured remote data science team, I designed and deployed scalable machine learning models, specifically utilizing Linear Regression and Gradient Boosting frameworks. Rather than treating the cumulative codebase as a black box, I engineered preprocessing and feature-engineering pipelines from scratch in Python to clean raw MLS datasets. I systematically tracked model performance using key regression metrics, including median absolute percentage error (MdAPE) and R² coefficients.</p>
+        </div>
+        <div class="proof-row is-validated">
+          <span class="label">What Came of It</span>
+          <p>The analytical pipelines significantly stabilized data accuracy, providing internal stakeholders with clear, data-driven insights. I packaged the final regression models and metrics into clean visual dashboards and comprehensive presentations to back high-level strategic planning. The entire repository was successfully managed under Git version control, maintaining strict continuity for our shared collaborative environment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section case-block" id="flyrank-ai" aria-labelledby="flyrank-heading">
+    <div class="container">
+      <span class="eyebrow case-meta">Backend AI Engineering Internship · FlyRank AI</span>
+      <h2 id="flyrank-heading">Engineering scalable server-side AI workflows and evaluation frameworks.</h2>
+
+      <div class="proof-item">
+        <div class="proof-row">
+          <span class="label">The Problem</span>
+          <p>Automating large-scale organic and AI-discovery content pipelines introduces high risks of model hallucinations and system instability. For FlyRank, operating within the 10x.ai growth ecosystem, the challenge was to ensure that automated server-side models strictly grounded their outputs and maintained bulletproof uptime under heavy loads.</p>
+        </div>
+        <div class="proof-row">
+          <span class="label">What I Did</span>
+          <p>I architected production-ready server-side AI workflows, focusing heavily on retrieval-augmented generation (RAG) architectures and structured output pipelines. To guarantee seamless integration with existing services, I built strict API contracts and automated tool-calling workflows. Crucially, I designed custom evaluation harnesses to explicitly calculate grounding accuracy and flag hallucination risks. I also implemented rigorous error-handling and validation blocks to prevent systemic downstream failures.</p>
+        </div>
+        <div class="proof-row is-validated">
+          <span class="label">What Came of It</span>
+          <p>The resulting AI infrastructure achieved structural stability, allowing automated content generation to proceed safely with an explicit audit trail. By enforcing rigorous verification logic at the API layer, model outputs consistently matched the backend specifications, preventing malformed payloads from breaking downstream applications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Interested in how this generalizes to your lab's baselines?</h2>
+      <a class="btn btn-primary" href="https://calendar.app.google/bJazdX21SBaHCQoB9" target="_blank" rel="noopener">Schedule an Interview</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="mailto:blan@umich.edu">blan@umich.edu</a></li>
+        <li><a class="is-primary" href="https://calendar.app.google/bJazdX21SBaHCQoB9" target="_blank" rel="noopener">Schedule an Interview</a></li>
+        <li><a href="https://www.linkedin.com/in/rivalan/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="assets/resume.pdf">Download Resume</a></li>
+      </ul>
+      <span class="copyright">© 2026 Beini (Riva) Lan</span>
+    </div>
+  </footer>
+
+</body>
+</html>

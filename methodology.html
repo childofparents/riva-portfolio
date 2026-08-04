@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology — Riva Lan</title>
+  <meta name="description" content="The standards behind every result on this site, including Git flow, data cleaning, and testing standards.">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="wordmark">Riva Lan<span class="dot"></span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academic-research.html">Academic Research</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="methodology.html" aria-current="page">Methodology</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Methodology</span>
+      <h1>The standards behind every result on this site.</h1>
+    </div>
+  </header>
+
+  <section class="section" id="git-flow">
+    <div class="container">
+      <div class="section-head">
+        <h2>Git Flow</h2>
+        <p>Development follows a strict branch-based workflow to ensure production stability and verifiable version history:</p>
+      </div>
+      <div class="note-block" style="border: none; padding: 0;">
+          <ul>
+            <li style="margin-bottom: 0.5rem;"><strong>Main Branch Continuity</strong>: The main branch remains strictly deployable. No direct commits are permitted.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Feature Isolation</strong>: Every technical update, algorithm refinement, or data pipeline modification is executed on an isolated feature branch branched directly from main.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Pull Request Documentation</strong>: Code changes are merged via pull requests detailing the specific problem addressed, architectural decisions made, and regression test logs.</li>
+            <li><strong>Commit Atomicity</strong>: Commit history is kept atomic and descriptive, mapping changes back to core project criteria.</li>
+          </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="data-cleaning-standards">
+    <div class="container">
+      <div class="section-head">
+        <h2>Data Cleaning Standards</h2>
+        <p>Raw datasets from LLM generation traces or MLS real estate feeds undergo a rigorous multi-stage preprocessing pipeline before downstream evaluation:</p>
+      </div>
+      <div class="note-block" style="border: none; padding: 0;">
+          <ul>
+            <li style="margin-bottom: 0.5rem;"><strong>Schema Enforcement</strong>: Raw inputs are validated against strict types and expected field schemas to prevent downstream malformed payloads.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Discrepancy Categorization</strong>: Data errors are explicitly categorized rather than excluded blindly. In text assessment sets, responses are coded into binary vectors (1 for correct, 0 for incorrect) based on specific answer key alignments.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Noise Mitigation</strong>: Prompts and text data are stripped of formatting artifacts and machine-generated noise while preserving instructional context and edge cases.</li>
+            <li><strong>Feature Extraction</strong>: Structural attributes (such as total living area in valuation models or token lengths in generation prompts) are isolated systematically under repeatable mathematical transforms.</li>
+          </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testing-standards">
+    <div class="container">
+      <div class="section-head">
+        <h2>Testing Standards</h2>
+        <p>Validation protocols prioritize operator-level isolation and exact error metrics over generalized qualitative summaries:</p>
+      </div>
+      <div class="note-block" style="border: none; padding: 0;">
+          <ul>
+            <li style="margin-bottom: 0.5rem;"><strong>Baseline Dominance Checks</strong>: Evaluation scripts sweep parameters (e.g., budgets N = 2 to 5 or Dirichlet alphas) to confirm new strategies strictly dominate independent baselines across 100% of tested domains.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Statistical Rigor</strong>: Performance models utilize specific interrater agreement measures—including Cohen's Kappa, precision, recall, and F1 scores—to map AI performance directly against human baselines.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Smoke Testing Pipelines</strong>: Technical codebases maintain small dry-run validation sets (_smoke folders) containing condensed verification files to run quick sanity checks before executing full-scale trial datasets.</li>
+            <li><strong>Error Mass Tracking</strong>: Pipelines track exact error mass distributions, calculating Pearson correlation metrics to monitor behavior under varying concentrations.</li>
+          </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Interested in how this generalizes to your lab's baselines?</h2>
+      <a class="btn btn-primary" href="https://calendar.app.google/bJazdX21SBaHCQoB9" target="_blank" rel="noopener">Schedule an Interview</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="mailto:blan@umich.edu">blan@umich.edu</a></li>
+        <li><a class="is-primary" href="https://calendar.app.google/bJazdX21SBaHCQoB9" target="_blank" rel="noopener">Schedule an Interview</a></li>
+        <li><a href="https://www.linkedin.com/in/rivalan/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="assets/resume.pdf">Download Resume</a></li>
+      </ul>
+      <span class="copyright">© 2026 Beini (Riva) Lan</span>
+    </div>
+  </footer>
+
+</body>
+</html>
