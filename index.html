@@ -2,9 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Riva Lan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riva Lan — Data Science, Reliability-First Research</title>
+  <meta name="description" content="Portfolio of Riva (Beini) Lan, B.S. Data Science, University of Michigan. Case studies in executing research methods precisely, documenting deviations, and validating results against baseline.">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Riva Lan</h1>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="wordmark">Riva Lan<span class="dot"></span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="academic-research.html">Academic Research</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <span class="eyebrow">B.S. Data Science · University of Michigan</span>
+      <h1>I execute research methods exactly as specified, and I know them well enough to catch what breaks.</h1>
+      <p class="lede">This site documents cases where an assumption did not hold: what I flagged, and how I validated the fix against the original baseline before reporting a result.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://calendar.app.google/bJazdX21SBaHCQoB9" target="_blank" rel="noopener">Schedule an Interview</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" aria-labelledby="reliability-heading">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Reliability Snapshot</span>
+        <h2 id="reliability-heading">Two cases, reduced to the moment an assumption was tested</h2>
+        <p>Full write-ups live on the Academic Research and Internships pages. This is the short version of each.</p>
+      </div>
+
+      <div class="proof-grid">
+        <article class="proof-item">
+          <div class="proof-row">
+            <span class="label">Task</span>
+            <p>Validate whether conditional sampling improves LLM test-time performance beyond independent sampling.</p>
+          </div>
+          <div class="proof-row">
+            <span class="label">Assumption flagged</span>
+            <p>A greedy approximation of the conditional strategy was expected to preserve the same guarantees.</p>
+          </div>
+          <div class="proof-row is-validated">
+            <span class="label">Validated</span>
+            <p>It did not, under an exact synthetic evaluator. The claim was excluded from the reported results rather than folded in.</p>
+          </div>
+        </article>
+
+        <article class="proof-item">
+          <div class="proof-row">
+            <span class="label">Task</span>
+            <p>Build an AI grading tool to match human graders on open-ended pharmacy course assignments.</p>
+          </div>
+          <div class="proof-row">
+            <span class="label">Assumption flagged</span>
+            <p>One general grading prompt was expected to generalize across all seven assignment types.</p>
+          </div>
+          <div class="proof-row is-validated">
+            <span class="label">Validated</span>
+            <p>It did not. Agreement against human grading was checked every round and item-level instructions were added until it reached 91.2% (κ = 0.81).</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="featured-heading">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Featured Case</span>
+        <h2 id="featured-heading">Test-time strategies for LLMs</h2>
+      </div>
+
+      <div class="card case-card" style="max-width: var(--content-max);">
+        <span class="eyebrow">Academic Research · Department of Statistics</span>
+        <h3>Conditional Pass@N and Search-Aligned Training</h3>
+        <p>Conditional sampling strictly dominated independent sampling across all 1,600 tested settings, with zero violations of the theoretical bound. One earlier claim did not survive validation and was reported as excluded.</p>
+        <a class="read-more" href="academic-research.html#llm-test-time-strategies">Read the full case →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="mailto:blan@umich.edu">blan@umich.edu</a></li>
+        <li><a class="is-primary" href="https://calendar.app.google/bJazdX21SBaHCQoB9" target="_blank" rel="noopener">Schedule an Interview</a></li>
+        <li><a href="https://www.linkedin.com/in/rivalan/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="assets/resume.pdf">Download Resume</a></li>
+      </ul>
+      <span class="copyright">© 2026 Beini (Riva) Lan</span>
+    </div>
+  </footer>
+
 </body>
 </html>

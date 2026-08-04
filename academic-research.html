@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Research — Riva Lan</title>
+  <meta name="description" content="Case studies in LLM test-time strategies and AI-assisted grading tool development, University of Michigan.">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="wordmark">Riva Lan<span class="dot"></span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academic-research.html" aria-current="page">Academic Research</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Academic Research</span>
+      <h1>Rigorous validation of testable methods, transparent reporting</h1>
+      <p class="lede">Both cases below follow the same structure: the task as specified, an assumption that did not survive testing, and what was validated before anything was reported.</p>
+    </div>
+  </header>
+
+  <section class="section case-block" id="llm-test-time-strategies" aria-labelledby="llm-heading">
+    <div class="container">
+      <span class="eyebrow case-meta">Lead Case · With Hexi Zhao · Advisor Adam Ousherovitch · Department of Statistics</span>
+      <h2 id="llm-heading">Conditional Pass@N and Search-Aligned Training</h2>
+      <p class="case-framing">Standard LLM training optimizes single-sample likelihood, which creates a mismatch with test-time strategies that generate multiple candidates and aggregate them. This project investigated whether conditional sampling closes that gap, and under what conditions.</p>
+
+      <div class="proof-item">
+        <div class="proof-row">
+          <span class="label">Task as specified</span>
+          <p>Fine-tune GPT-2 on 1,000 problems from the MATH benchmark and compare three test-time sampling strategies — a normal baseline, simple conditional prompting, and a two-stage chunked approach — against a fixed sample budget on 100 held-out problems.</p>
+        </div>
+        <div class="proof-row">
+          <span class="label">Assumption flagged</span>
+          <p>An early formulation treated a simplified, greedy approximation of conditional sampling as sufficient to establish the dominance guarantee expected of the full operator. Prompt-based conditioning also ran into a practical limit: instructing the model not to repeat a prior wrong answer could paradoxically raise the odds of that same answer (the "Pink Elephant Effect"), and GPT-2's limited instruction-following made conditioning unreliable, particularly in a chain-of-thought context. Results were suggestive — conditional strategies improved pass@10 by up to fivefold over baseline — but the held-out set was too small for the claim to stand on its own.</p>
+        </div>
+        <div class="proof-row is-validated">
+          <span class="label">Validated before reporting</span>
+          <p>The greedy-approximation claim was excluded rather than reported, and the underlying question was isolated from prompt-following noise with a second, exact evaluator: a Sampling-Without-Replacement operator over a synthetic categorical distribution (one correct answer at fixed probability, eight rival answers under variable concentration), tested across 1,600 settings (4 budgets × 4 probabilities × 5 concentration levels × 400 trials). Under that exact evaluator, conditional pass@N strictly dominated independent pass@N with zero violations.</p>
+        </div>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat"><span class="stat-number">0</span><span class="label">Violations across 1,600 tested settings</span></div>
+        <div class="stat"><span class="stat-number">100%</span><span class="label">Strict improvement over independent sampling</span></div>
+        <div class="stat"><span class="stat-number">r = 0.97</span><span class="label">Correlation between rival-answer concentration and gain</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section case-block" id="maizey-grading-tool" aria-labelledby="maizey-heading">
+    <div class="container">
+      <span class="eyebrow case-meta">Research Assistant to Hao-Ping Chiang · University of Michigan College of Pharmacy</span>
+      <h2 id="maizey-heading">Maizey Automated Grading Tool</h2>
+      <p class="case-framing">Students in the PharmD Evidence-Based Medicine course complete seven open-ended appraisal assignments per term, each requiring roughly five hours of graduate-instructor review. This project built and evaluated a retrieval-augmented grading tool inside Maizey, the University of Michigan's institutionally protected AI platform, to reduce that load without giving up grading quality.</p>
+
+      <div class="proof-item">
+        <div class="proof-row">
+          <span class="label">Task as specified</span>
+          <p>Build a grading tool that retrieves course-specific answer keys and evaluates student responses at temperature 0 for reproducible output, then check its classifications against human grading using interrater agreement (Cohen's κ) and confusion-matrix metrics, across three evaluation rounds and all seven assignment types.</p>
+        </div>
+        <div class="proof-row">
+          <span class="label">Assumption flagged</span>
+          <p>The first version assumed one general grading prompt would generalize across all seven assignment types, and graded primarily for overlap with the answer key regardless of question type. Round 1 showed that assumption failing directly: 58.6% observed agreement with human graders and κ = 0.22 (fair agreement) — not usable for deployment. The tool was also overly stringent, requiring exact detail-level matches even on judgment-based questions where the core reasoning mattered more than exact wording.</p>
+        </div>
+        <div class="proof-row is-validated">
+          <span class="label">Validated before reporting</span>
+          <p>Each round's confusion matrix was checked against human grading before any prompt change was kept, and item-level instructions were added specifically where an item produced more than one false positive or more than three false negatives. By round 3, observed agreement reached 91.2% (κ = 0.81, almost perfect agreement) while recall on incorrect responses stayed at 93.0% — prioritized deliberately, since a missed error costs more in a grading context than an over-flagged one. Precision improved from 52.3% to 82.4% across rounds, and the tool's remaining tendency to flag correct answers as incorrect is reported as an open limitation, not smoothed over.</p>
+        </div>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat"><span class="stat-number">91.2%</span><span class="label">Agreement with human graders, round 3</span></div>
+        <div class="stat"><span class="stat-number">κ = 0.81</span><span class="label">Almost perfect agreement (Landis &amp; Koch)</span></div>
+        <div class="stat"><span class="stat-number">93.0%</span><span class="label">Recall on incorrect responses</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Interested in how this generalizes to your lab's baselines?</h2>
+      <a class="btn btn-primary" href="https://calendar.app.google/bJazdX21SBaHCQoB9" target="_blank" rel="noopener">Schedule an Interview</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="mailto:blan@umich.edu">blan@umich.edu</a></li>
+        <li><a class="is-primary" href="https://calendar.app.google/bJazdX21SBaHCQoB9" target="_blank" rel="noopener">Schedule an Interview</a></li>
+        <li><a href="https://www.linkedin.com/in/rivalan/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="assets/resume.pdf">Download Resume</a></li>
+      </ul>
+      <span class="copyright">© 2026 Beini (Riva) Lan</span>
+    </div>
+  </footer>
+
+</body>
+</html>
