@@ -146,7 +146,8 @@
         
         <a href="assets/TTS poster.pdf" target="_blank" rel="noopener" aria-label="Open full TTS poster.pdf in a new tab" style="display: block; position: relative; border: 1px solid var(--color-slate); border-radius: 4px; overflow: hidden; background: var(--color-surface);">
           <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 10; cursor: pointer;"></div>
-          <iframe src="assets/TTS poster.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" width="100%" height="450px" style="border: none; display: block; pointer-events: none;" tabindex="-1">
+          <!-- Updated iframe with view=Fit, scrolling="no", and overflow: hidden -->
+          <iframe src="assets/TTS poster.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit" width="100%" height="450px" style="border: none; display: block; pointer-events: none; overflow: hidden;" scrolling="no" tabindex="-1">
             <p>Your browser does not support inline PDF previews.</p>
           </iframe>
         </a>
@@ -186,7 +187,7 @@
         <div class="stat"><span class="stat-number">93.0%</span><span class="label">Recall on incorrect responses</span></div>
       </div>
 
-      <!-- ADDED MAIZEY SLIDESHOW BLOCK -->
+      <!-- MAIZEY SLIDESHOW BLOCK -->
       <div style="margin-top: 3.5rem; max-width: var(--content-max);">
         <span class="eyebrow case-meta">Visual Evidence</span>
         <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Project Presentation Slides</h3>
