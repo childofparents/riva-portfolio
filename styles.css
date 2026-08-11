@@ -26,7 +26,7 @@
   --size-h1: 2.25rem;   /* 36px — page titles */
   --size-h2: 1.5rem;    /* 24px — section headers */
   --size-body: 1rem;    /* 16px */
-  --size-label: 0.75rem;/* 12px — small caps labels */
+  --size-label: 0.85rem;/* Updated from 0.75rem for improved mobile legibility */
 
   /* Spacing */
   --space-section: 4rem;   /* vertical rhythm between major sections */
