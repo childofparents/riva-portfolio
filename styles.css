@@ -26,7 +26,7 @@
   --size-h1: 2.25rem;   
   --size-h2: 1.5rem;    
   --size-body: 1rem;    
-  --size-label: 0.85rem; /* Sized up for mobile legibility */
+  --size-label: 0.85rem;
 
   /* Spacing */
   --space-section: 4rem;   
@@ -186,43 +186,48 @@ button:focus-visible {
 .hero .container {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 3rem;
+  gap: 4rem;
   align-items: center;
 }
 
-.hero .eyebrow { margin-bottom: 1rem; display: block; }
+/* Text Column */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
-.hero h1 {
-  max-width: 720px;
-  font-size: clamp(1.75rem, 4vw, var(--size-h1));
+.hero-text .eyebrow { 
+  margin-bottom: 0; 
+  display: block; 
 }
 
 .hero p.lede {
   max-width: var(--content-max);
   color: var(--color-slate);
   font-size: 1.0625rem;
+  margin: 0;
 }
 
-.hero .actions {
-  margin-top: 1.75rem;
+.hero h1 {
+  font-size: clamp(1.75rem, 4vw, var(--size-h1));
+  margin: 0;
+}
+
+/* Visual Column */
+.hero-visual {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
+  gap: 2rem;
 }
 
-.availability-note {
-  font-size: 0.85rem;
-  color: var(--color-slate);
-  margin-top: 1rem;
-  font-weight: 500;
-}
-
+/* Photo Treatment */
 .profile-photo {
-  border-radius: 4px;
+  width: 100%;
+  max-width: 320px;
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08); 
+  border-radius: 4px;
 }
 
 .profile-photo img {
@@ -231,7 +236,16 @@ button:focus-visible {
   display: block;
   object-fit: cover;
   aspect-ratio: 4/5;
-  background-color: var(--color-border); 
+  background-color: var(--color-border);
+  mix-blend-mode: darken;
+  filter: grayscale(10%) contrast(1.05) brightness(0.98); 
+}
+
+.hero-visual .actions { 
+  margin-top: 0; 
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 /* ---------- Section shell ---------- */
@@ -462,12 +476,15 @@ button:focus-visible {
 @media (max-width: 768px) {
   .hero .container {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
+  }
+  
+  .hero-visual {
+    order: -1; 
   }
   
   .profile-photo {
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 280px;
   }
 }
 
