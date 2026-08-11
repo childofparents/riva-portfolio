@@ -12,27 +12,27 @@
 /* ---------- Tokens ---------- */
 :root {
   /* Color palette (Identity Kit) */
-  --color-bg: #F1F5F9;       /* Cool White — background */
-  --color-ink: #0F172A;      /* Rich Black — headings & body */
-  --color-slate: #334155;    /* Deeper Slate — secondary text, borders */
-  --color-accent: #0D9488;   /* Muted Teal — links, primary CTA */
-  --color-surface: #FFFFFF;  /* card surfaces, slightly lifted off bg */
-  --color-border: #E2E8F0;   /* hairline borders on cards */
+  --color-bg: #F1F5F9;       
+  --color-ink: #0F172A;      
+  --color-slate: #334155;    
+  --color-accent: #0D9488;   
+  --color-surface: #FFFFFF;  
+  --color-border: #E2E8F0;   
 
   /* Type */
   --font-heading: 'Merriweather', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  --size-h1: 2.25rem;   /* 36px — page titles */
-  --size-h2: 1.5rem;    /* 24px — section headers */
-  --size-body: 1rem;    /* 16px */
-  --size-label: 0.85rem;/* Updated from 0.75rem for improved mobile legibility */
+  --size-h1: 2.25rem;   
+  --size-h2: 1.5rem;    
+  --size-body: 1rem;    
+  --size-label: 0.85rem; /* Sized up for mobile legibility */
 
   /* Spacing */
-  --space-section: 4rem;   /* vertical rhythm between major sections */
-  --space-card: 1.5rem;    /* padding inside cards */
-  --content-max: 800px;    /* paragraph width cap */
-  --page-max: 1120px;      /* outer page/container width */
+  --space-section: 4rem;   
+  --space-card: 1.5rem;    
+  --content-max: 800px;    
+  --page-max: 1120px;      
 }
 
 /* ---------- Base / Reset ---------- */
@@ -183,6 +183,13 @@ button:focus-visible {
   padding: var(--space-section) 0 3rem;
 }
 
+.hero .container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+}
+
 .hero .eyebrow { margin-bottom: 1rem; display: block; }
 
 .hero h1 {
@@ -196,7 +203,36 @@ button:focus-visible {
   font-size: 1.0625rem;
 }
 
-.hero .actions { margin-top: 1.75rem; }
+.hero .actions {
+  margin-top: 1.75rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.availability-note {
+  font-size: 0.85rem;
+  color: var(--color-slate);
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.profile-photo {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08); 
+}
+
+.profile-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+  background-color: var(--color-border); 
+}
 
 /* ---------- Section shell ---------- */
 .section {
@@ -208,11 +244,7 @@ button:focus-visible {
 .section-head .eyebrow { display: block; margin-bottom: 0.5rem; }
 .section-head p { color: var(--color-slate); }
 
-/* ---------- Proof items (reliability snapshot) ----------
-   Structural signature used across the site: every reliability
-   claim is shown as the same three-step sequence — task set,
-   assumption flagged, result validated — never as an adjective. */
-
+/* ---------- Proof items ---------- */
 .proof-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -271,17 +303,95 @@ button:focus-visible {
   font-size: 0.9rem;
 }
 
-/* ---------- Case pages: page hero (shorter than home) ---------- */
+/* ---------- Case pages ---------- */
 .page-hero { padding: 3rem 0 1rem; }
 .page-hero h1 { font-size: clamp(1.6rem, 3.4vw, var(--size-h1)); max-width: var(--content-max); }
 .page-hero p.lede { color: var(--color-slate); font-size: 1.0625rem; }
 
-/* ---------- Case block (full write-up) ---------- */
 .case-block .case-meta { display: block; margin-bottom: 0.5rem; }
 .case-block h2 { max-width: var(--content-max); }
 .case-block .case-framing { color: var(--color-slate); max-width: var(--content-max); margin-bottom: 2rem; }
 .case-block .proof-item { border-left: 2px solid var(--color-border); padding-left: 1.5rem; max-width: var(--content-max); }
 .case-block .proof-row p { font-size: 1rem; max-width: var(--content-max); }
+
+/* ---------- Data Tables & Code ---------- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  background: var(--color-surface);
+}
+
+.data-table th, 
+.data-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.data-table th {
+  background: var(--color-bg);
+  font-weight: 600;
+  color: var(--color-slate);
+}
+
+.data-table td { font-family: var(--font-body); }
+
+.code-block {
+  background: var(--color-ink);
+  color: var(--color-bg);
+  padding: 1.25rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  margin: 1.5rem 0;
+  line-height: 1.5;
+}
+
+/* ---------- Visual Evidence Embeds ---------- */
+.poster-preview {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border: 1px solid var(--color-border);
+}
+
+.poster-embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; 
+  height: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.poster-embed-wrapper iframe,
+.poster-embed-wrapper embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.slide-controls .btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 
 /* ---------- Stat strip ---------- */
 .stat-strip {
@@ -304,7 +414,7 @@ button:focus-visible {
 
 .stat .label { display: block; margin-top: 0.15rem; }
 
-/* ---------- CTA band ---------- */
+/* ---------- CTA band & Footer ---------- */
 .cta-band {
   text-align: center;
   padding: var(--space-section) 0;
@@ -312,7 +422,6 @@ button:focus-visible {
 }
 .cta-band h2 { margin-bottom: 1.25rem; }
 
-/* ---------- Footer ---------- */
 .site-footer {
   border-top: 1px solid var(--color-border);
   padding: 3rem 0;
@@ -350,10 +459,34 @@ button:focus-visible {
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .profile-photo {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 640px) {
   .site-nav .container { height: auto; padding-top: 1rem; padding-bottom: 1rem; flex-wrap: wrap; row-gap: 0.75rem; }
-  .nav-links { gap: 1.25rem; flex-wrap: wrap; }
+  
+  .nav-links {
+    gap: 1.25rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 0.25rem;
+  }
+
   .hero { padding: 2.5rem 0 2rem; }
   .section { padding: 2.5rem 0; }
+  
+  .slide-controls { gap: 0.5rem; }
+  .slide-controls .btn { padding: 0.5rem 0.75rem; font-size: 0.85rem; }
+  
   .site-footer .container { flex-direction: column; align-items: flex-start; }
 }
