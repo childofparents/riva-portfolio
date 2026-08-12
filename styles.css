@@ -18,6 +18,9 @@
   --color-accent: #0D9488;   
   --color-surface: #FFFFFF;  
   --color-border: #E2E8F0;   
+  
+  /* New token for accessible text on light backgrounds */
+  --color-accent-strong: #0B7C71;
 
   /* Type */
   --font-heading: 'Merriweather', Georgia, 'Times New Roman', serif;
@@ -200,6 +203,18 @@ button:focus-visible {
 .hero-text .eyebrow { 
   margin-bottom: 0; 
   display: block; 
+}
+
+/* New badge styling scoped strictly to the hero text */
+.hero-text .eyebrow.hero-badge {
+  display: inline-block;
+  color: var(--color-accent-strong);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
 }
 
 .hero p.lede {
