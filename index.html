@@ -115,25 +115,62 @@
       </div>
 
       <div class="card case-card" style="max-width: var(--content-max);">
-        <form action="https://formspree.io/f/mppaynzn" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <form id="contact-form" action="YOUR_FORMSPREE_ENDPOINT" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
           <label style="display: flex; flex-direction: column; font-family: 'Inter', sans-serif; font-weight: 500;">
             Your Name:
-            <input type="text" name="name" required style="padding: 0.75rem; margin-top: 0.5rem; border: 1px solid #475569; border-radius: 4px; font-family: 'Inter', sans-serif;">
+            <input type="text" name="name" required oninvalid="this.setCustomValidity('Please provide your name so I know who is reaching out.')" oninput="this.setCustomValidity('')" style="padding: 0.75rem; margin-top: 0.5rem; border: 1px solid #475569; border-radius: 4px; font-family: 'Inter', sans-serif;">
           </label>
           <label style="display: flex; flex-direction: column; font-family: 'Inter', sans-serif; font-weight: 500;">
             Your Email:
-            <input type="email" name="email" required style="padding: 0.75rem; margin-top: 0.5rem; border: 1px solid #475569; border-radius: 4px; font-family: 'Inter', sans-serif;">
+            <input type="email" name="email" required oninvalid="this.setCustomValidity('Please include a valid email so I can reply to you.')" oninput="this.setCustomValidity('')" style="padding: 0.75rem; margin-top: 0.5rem; border: 1px solid #475569; border-radius: 4px; font-family: 'Inter', sans-serif;">
           </label>
           <label style="display: flex; flex-direction: column; font-family: 'Inter', sans-serif; font-weight: 500;">
             Your Message:
-            <textarea name="message" required rows="5" style="padding: 0.75rem; margin-top: 0.5rem; border: 1px solid #475569; border-radius: 4px; font-family: 'Inter', sans-serif; resize: vertical;"></textarea>
+            <textarea name="message" required oninvalid="this.setCustomValidity('Please write a short message.')" oninput="this.setCustomValidity('')" rows="5" style="padding: 0.75rem; margin-top: 0.5rem; border: 1px solid #475569; border-radius: 4px; font-family: 'Inter', sans-serif; resize: vertical;"></textarea>
           </label>
           <button type="submit" class="btn btn-primary" style="align-self: flex-start; cursor: pointer;">Send Message</button>
+          
+          <!-- Status Message Container -->
+          <p id="form-status" style="display: none; font-family: 'Inter', sans-serif; font-weight: 500; margin-top: 0.5rem;"></p>
         </form>
       </div>
     </div>
   </section>
 
+  <!-- Form Handling Script -->
+  <script>
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        
+        if (response.ok) {
+          form.reset();
+          status.style.display = 'block';
+          status.style.color = '#0D9488'; 
+          status.innerText = 'Thanks, I will be in touch!';
+        } else {
+          status.style.display = 'block';
+          status.style.color = '#ef4444'; 
+          status.innerText = 'There was a problem submitting your form. Please try again.';
+        }
+      } catch (error) {
+        status.style.display = 'block';
+        status.style.color = '#ef4444';
+        status.innerText = 'Network error. Please check your connection and try again.';
+      }
+    });
+  </script>
+  
   <footer class="site-footer">
     <div class="container">
       <ul class="footer-links">
